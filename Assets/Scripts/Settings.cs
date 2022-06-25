@@ -13,16 +13,24 @@ public class Settings : MonoBehaviour
 
     [SerializeField]
     public Slider Music;
-    private int MusicVol;
+    private float MusicVol;
 
     [SerializeField]
     public Slider SFX;
-    private int SFXVol;
+    private float SFXVol;
 
     private bool isLoading;
 
     // Start is called before the first frame update
     IEnumerator Start() {
+        // Load Volume Values
+        MusicVol = (PlayerPrefs.GetFloat("music"));
+        Music.value = MusicVol;
+
+        SFXVol = (int) (PlayerPrefs.GetFloat("sfx"));
+        SFX.value = SFXVol;
+        Debug.Log(MusicVol.ToString() + SFXVol.ToString());
+
         // Load Language Selector
         yield return LocalizationSettings.InitializationOperation;
 
@@ -36,20 +44,15 @@ public class Settings : MonoBehaviour
         langSelector.onValueChanged.AddListener(LocaleSelected);
 
         langName = PlayerPrefs.GetString("locale");
+        if (langName == "") {
+            langName = "";
+        }
+
         for (int i = 0; i < langSelector.options.Count; i++) {
             if (langSelector.options[i].text == langName) {
                 langSelector.value = i;
             }
         }
-
-
-        // Load Volume Values
-        MusicVol = (int) (PlayerPrefs.GetInt("music"));
-        Music.value = (float) (MusicVol / 100);
-
-        SFXVol = (int) (PlayerPrefs.GetInt("sfx"));
-        SFX.value = (float) (SFXVol / 100);
-        Debug.Log(MusicVol.ToString() + SFXVol.ToString());
     }
 
     public void LocaleSelected(int index) {
@@ -68,13 +71,13 @@ public class Settings : MonoBehaviour
         if (isLoading) {
             return;
         }
-        MusicVol = (int) (Music.value * 100);
-        SFXVol = (int) (SFX.value * 100);
+        MusicVol = Music.value;
+        SFXVol =SFX.value;
 
-        PlayerPrefs.SetInt("music", MusicVol);
+        PlayerPrefs.SetFloat("music", MusicVol);
         Debug.Log(MusicVol.ToString());
 
-        PlayerPrefs.SetInt("sfx", SFXVol);
+        PlayerPrefs.SetFloat("sfx", SFXVol);
         Debug.Log(SFXVol.ToString());
     }
 
