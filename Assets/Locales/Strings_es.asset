@@ -46,6 +46,18 @@ MonoBehaviour:
     m_Localized: Sonidos
     m_Metadata:
       m_Items: []
+  - m_Id: 146001327554560
+    m_Localized: "Ingl\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146074035814400
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146184924823552
+    m_Localized: "Valenciano / Catal\xE1n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

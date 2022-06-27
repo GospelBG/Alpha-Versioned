@@ -43,6 +43,18 @@ MonoBehaviour:
     m_Key: slider_sfx
     m_Metadata:
       m_Items: []
+  - m_Id: 146001327554560
+    m_Key: lang_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146074035814400
+    m_Key: lang_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146184924823552
+    m_Key: lang_2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

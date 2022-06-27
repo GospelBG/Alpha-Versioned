@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Valencian - Catalan5
+  m_Name: Localization-String-Tables-Valencian - Catalan7
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Valencian - Catalan5
+  m_GroupName: Localization-String-Tables-Valencian - Catalan7
   m_Data:
     m_SerializedData: []
-  m_GUID: 154ddec85210a447b91790b753928e6b
+  m_GUID: 920c23b7b5ba3d44d997e245530cbb4e
   m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: bc8a74947076331478156178ba3efb63, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 160d61578378f46e89e8ed883a118c7c, type: 2}
-    - {fileID: 11400000, guid: cbd35a72da30549beb4a145c645060d0, type: 2}
+    - {fileID: 11400000, guid: 4a06388eaec2db343b3d79bf682bcbf8, type: 2}
+    - {fileID: 11400000, guid: f636bf7d07150b34f992d096755539a3, type: 2}

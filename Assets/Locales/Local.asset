@@ -16,6 +16,8 @@ MonoBehaviour:
   - rid: 7435993295131508751
   - rid: 7435993295131508752
   - rid: 7435993295131508753
+  - rid: 7435993336986468424
+  - rid: 7435993336986468425
   m_AvailableLocales:
     rid: 7435993295131508754
   m_AssetDatabase:
@@ -60,7 +62,7 @@ MonoBehaviour:
           m_TableCollectionName: 
         m_UseFallback: 0
         m_MissingTranslationState: 1
-        m_NoTranslationFoundMessage: No translation found for '{key}' in {table.TableCollectionName}
+        m_NoTranslationFoundMessage: No translation found.
         m_SmartFormat:
           rid: 7435993295131508757
     - rid: 7435993295131508757
@@ -206,3 +208,15 @@ MonoBehaviour:
         - default
         - d
         - 
+    - rid: 7435993336986468424
+      type: {class: SpecificLocaleSelector, ns: UnityEngine.Localization.Settings,
+        asm: Unity.Localization}
+      data:
+        m_LocaleId:
+          m_Code: es
+    - rid: 7435993336986468425
+      type: {class: SpecificLocaleSelector, ns: UnityEngine.Localization.Settings,
+        asm: Unity.Localization}
+      data:
+        m_LocaleId:
+          m_Code: ca-ES-valencia

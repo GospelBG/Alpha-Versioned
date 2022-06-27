@@ -9,7 +9,8 @@ public class Settings : MonoBehaviour
 {
     [SerializeField]
     public TMP_Dropdown langSelector;
-    private string langName;
+    private int localeIndex;
+
 
     [SerializeField]
     public Slider Music;
@@ -19,60 +20,67 @@ public class Settings : MonoBehaviour
     public Slider SFX;
     private float SFXVol;
 
-    private bool isLoading;
-
     // Start is called before the first frame update
     IEnumerator Start() {
         // Load Volume Values
-        MusicVol = (PlayerPrefs.GetFloat("music"));
+        Debug.Log(PlayerPrefs.GetFloat("music").ToString() +  PlayerPrefs.GetFloat("sfx").ToString());
+
+        MusicVol = PlayerPrefs.GetFloat("music");
         Music.value = MusicVol;
 
-        SFXVol = (int) (PlayerPrefs.GetFloat("sfx"));
+        SFXVol = PlayerPrefs.GetFloat("sfx");
         SFX.value = SFXVol;
+
         Debug.Log(MusicVol.ToString() + SFXVol.ToString());
+
+        // Enable Slider listeners
+        Music.onValueChanged.AddListener(delegate {SetVolume();});
+        SFX.onValueChanged.AddListener(delegate {SetVolume();});
 
         // Load Language Selector
         yield return LocalizationSettings.InitializationOperation;
-
-        langSelector.options.Clear();
-        foreach (var lang in LocalizationSettings.AvailableLocales.Locales)
-        {
-            string name = lang.name.Replace("-", "/");
-            langSelector.options.Add(new TMP_Dropdown.OptionData(name));
-        }
-
-        langSelector.onValueChanged.AddListener(LocaleSelected);
-
-        langName = PlayerPrefs.GetString("locale");
-        if (langName == "") {
-            langName = "";
-        }
+        setLang(PlayerPrefs.GetInt("locale", 9));        
 
         for (int i = 0; i < langSelector.options.Count; i++) {
-            if (langSelector.options[i].text == langName) {
+            if (PlayerPrefs.GetInt("locale", 9) == 9 && LocalizationSettings.SelectedLocale.name.ToLower().Replace("-", " / ").Equals(LocalizationSettings.AvailableLocales.Locales[i].name.ToLower())) {
+                langSelector.value = i;
+            }
+
+            if (i == PlayerPrefs.GetInt("locale", 9)) {
                 langSelector.value = i;
             }
         }
+
+        langSelector.onValueChanged.AddListener(setLang); // Enable Listener
     }
 
-    public void LocaleSelected(int index) {
+    public void setLang(int index) {
+        if (index == 9) {
+            return;
+        }
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
-        langName = LocalizationSettings.AvailableLocales.Locales[index].name;
-    }
+        localeIndex = index;
 
-    public void setLang() {
-        int option = langSelector.value;
-        string newLang = langSelector.options[option].text;
 
-        PlayerPrefs.SetString("locale", newLang);
+        PlayerPrefs.SetInt("locale", index);
+
+        langSelector.options.Clear();
+
+        for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; i++) {   
+            if (i == 0) { //Localize selector label
+                var opLabel = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("Strings", "lang_"+langSelector.value);
+                langSelector.gameObject.transform.GetChild(0).GetComponent<TMP_Text>().text = opLabel.Result;
+            }
+
+            var op = LocalizationSettings.StringDatabase.GetLocalizedStringAsync("Strings", "lang_"+i);
+
+            langSelector.options.Add(new TMP_Dropdown.OptionData(op.Result));
+        }
     }
 
     public void SetVolume() {
-        if (isLoading) {
-            return;
-        }
         MusicVol = Music.value;
-        SFXVol =SFX.value;
+        SFXVol = SFX.value;
 
         PlayerPrefs.SetFloat("music", MusicVol);
         Debug.Log(MusicVol.ToString());
@@ -82,8 +90,6 @@ public class Settings : MonoBehaviour
     }
 
     public void returnToMenu() {
-        isLoading = true;
-
         PlayerPrefs.Save();
 
         //TODO: Return to menu

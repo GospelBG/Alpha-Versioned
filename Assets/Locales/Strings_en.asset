@@ -46,6 +46,18 @@ MonoBehaviour:
     m_Localized: SFX
     m_Metadata:
       m_Items: []
+  - m_Id: 146001327554560
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146074035814400
+    m_Localized: Spanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 146184924823552
+    m_Localized: Valencian / Catalan
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
