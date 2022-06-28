@@ -20,8 +20,12 @@ public class Settings : MonoBehaviour
     public Slider SFX;
     private float SFXVol;
 
+    public static Canvas canvas;
+
     // Start is called before the first frame update
     IEnumerator Start() {
+        canvas = GetComponent<Canvas>();
+
         // Load Volume Values
         Debug.Log(PlayerPrefs.GetFloat("music").ToString() +  PlayerPrefs.GetFloat("sfx").ToString());
 
@@ -92,6 +96,21 @@ public class Settings : MonoBehaviour
     public void returnToMenu() {
         PlayerPrefs.Save();
 
-        //TODO: Return to menu
+        MainMenu.replaceRenderStatic("MainMenu");
+        setSceneVisibility("hide scene");
+    }
+
+    public static void setSceneVisibility(string state) {
+        switch (state) {
+            case "show scene":
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                //MainMenu.canvas.GetComponent<Animation>().StopPlayback();
+                break;
+
+            case "hide scene":
+                canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                break;
+
+        }
     }
 }
