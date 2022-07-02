@@ -58,6 +58,30 @@ MonoBehaviour:
     m_Localized: Valencian / Catalan
     m_Metadata:
       m_Items: []
+  - m_Id: 1069779784040448
+    m_Localized: Select a save file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069953835073536
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1274958798127104
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275013248581632
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275058886803456
+    m_Localized: OK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2385536835993600
+    m_Localized: Overwrite existing save?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

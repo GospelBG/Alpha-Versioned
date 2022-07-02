@@ -58,6 +58,30 @@ MonoBehaviour:
     m_Localized: "Valenciano / Catal\xE1n"
     m_Metadata:
       m_Items: []
+  - m_Id: 1069779784040448
+    m_Localized: Selecciona un archivo de guardado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069953835073536
+    m_Localized: Archivo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1274958798127104
+    m_Localized: "S\xED"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275013248581632
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275058886803456
+    m_Localized: Vale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2385536835993600
+    m_Localized: "\xBFSobrescribir la partida existente?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

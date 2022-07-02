@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class MainMenu : MonoBehaviour
 
     public static GameObject canvas;
 
+    public GameObject OverwriteConfirmation;
+
+    public Button loadButton;
 
     // Start is called before the first frame update
     void Start() {
@@ -24,7 +29,13 @@ public class MainMenu : MonoBehaviour
         Version.text = "v"+Application.version;
 
         SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
-        // TODO: Check for existing saves. (Enable / Disable load button)
+        
+        if (File.Exists(Application.persistentDataPath+"/Saves/save.sav")) {
+            loadButton.interactable = true;
+        } else {
+            loadButton.interactable = false;
+        }
+        
     }
 
     public void Exit() {
@@ -32,7 +43,13 @@ public class MainMenu : MonoBehaviour
     }
 
     public void newSave() {
-        // Create save + start game
+        if (File.Exists(Application.persistentDataPath+"/Saves/save.sav")) {
+            OverwriteConfirmation.SetActive(true);
+        }
+    }
+
+    public void startNewSave() {
+
     }
 
     public void loadSave() {
@@ -57,5 +74,9 @@ public class MainMenu : MonoBehaviour
 
             canvas.GetComponent<Animation>().Play("SettingsToMenu");
         }
+    }
+
+    public void closeWarning() {
+        OverwriteConfirmation.SetActive(false);
     }
 }

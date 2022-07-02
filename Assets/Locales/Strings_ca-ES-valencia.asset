@@ -58,6 +58,30 @@ MonoBehaviour:
     m_Localized: "Valenci\xE0 / Catal\xE0"
     m_Metadata:
       m_Items: []
+  - m_Id: 1069779784040448
+    m_Localized: Selecciona un fitxer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069953835073536
+    m_Localized: Fitxer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1274958798127104
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275013248581632
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275058886803456
+    m_Localized: D'acord
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2385536835993600
+    m_Localized: Sobreescriure la partida existent?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -55,6 +55,30 @@ MonoBehaviour:
     m_Key: lang_2
     m_Metadata:
       m_Items: []
+  - m_Id: 1069779784040448
+    m_Key: select_save_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1069953835073536
+    m_Key: save_file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1274958798127104
+    m_Key: yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275013248581632
+    m_Key: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1275058886803456
+    m_Key: ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2385536835993600
+    m_Key: overwrite_save
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
