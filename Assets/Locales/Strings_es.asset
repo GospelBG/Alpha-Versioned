@@ -82,6 +82,26 @@ MonoBehaviour:
     m_Localized: "\xBFSobrescribir la partida existente?"
     m_Metadata:
       m_Items: []
+  - m_Id: 3873530084159488
+    m_Localized: Juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3873599961264128
+    m_Localized: Sensibilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578242371780608
+    m_Localized: Pulsa ESC para volver al juego.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578601756524544
+    m_Localized: Guardar Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4579022973698048
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

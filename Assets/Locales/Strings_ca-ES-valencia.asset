@@ -82,6 +82,26 @@ MonoBehaviour:
     m_Localized: Sobreescriure la partida existent?
     m_Metadata:
       m_Items: []
+  - m_Id: 3873530084159488
+    m_Localized: Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3873599961264128
+    m_Localized: Sensibilitat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578242371780608
+    m_Localized: Prem ESC per tornar al joc.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578601756524544
+    m_Localized: Guardar Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4579022973698048
+    m_Localized: Eixir
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

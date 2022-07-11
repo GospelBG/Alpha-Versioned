@@ -82,6 +82,26 @@ MonoBehaviour:
     m_Localized: Overwrite existing save?
     m_Metadata:
       m_Items: []
+  - m_Id: 3873530084159488
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3873599961264128
+    m_Localized: Sensibility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578242371780608
+    m_Localized: Press ESC to return to game.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578601756524544
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4579022973698048
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

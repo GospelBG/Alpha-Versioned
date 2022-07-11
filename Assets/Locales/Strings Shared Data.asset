@@ -79,6 +79,26 @@ MonoBehaviour:
     m_Key: overwrite_save
     m_Metadata:
       m_Items: []
+  - m_Id: 3873530084159488
+    m_Key: title_gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3873599961264128
+    m_Key: Sensibility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578242371780608
+    m_Key: press_to_return_to_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4578601756524544
+    m_Key: bttn_save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4579022973698048
+    m_Key: bttn_quit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

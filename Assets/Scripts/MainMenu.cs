@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject SettingsRender;
 
-    public static GameObject staticRender;
+    public static GameObject staticSettingsRender;
 
     public static GameObject canvas;
 
@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        staticRender = SettingsRender;
+        staticSettingsRender = SettingsRender;
         canvas = gameObject;
 
         Version.text = "v"+Application.version;
@@ -57,22 +57,26 @@ public class MainMenu : MonoBehaviour
     }
 
     public void goToSettings() {
+        Settings.resetScene();
         GetComponent<Animation>().Play("MenuToSettings");
     }
 
-    public void replaceRender (string SceneName) {
-        replaceRenderStatic(SceneName);
+    public void replaceRender (string SceneName, GameObject staticRender) {
+        replaceRenderStatic(SceneName, staticRender, canvas);
     }
 
-    public static void replaceRenderStatic (string SceneName) {
+    public static void replaceRenderStatic (string SceneName, GameObject staticRender, GameObject cnvs) {
         if (SceneName.Equals("Settings")) {
             staticRender.SetActive(false);
+
+            Settings.lastRenderer = staticRender;
+            Settings.lastCanvas = cnvs;
 
             Settings.setSceneVisibility("show scene");
         } else if (SceneName.Equals("MainMenu")) {
             staticRender.SetActive(true);
 
-            canvas.GetComponent<Animation>().Play("SettingsToMenu");
+            cnvs.GetComponent<Animation>().Play("SettingsToMenu");
         }
     }
 
