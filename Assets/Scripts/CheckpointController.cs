@@ -17,10 +17,6 @@ public class CheckpointController : MonoBehaviour
     {
         if (col.gameObject.tag.Equals(CheckpointTag)) {
             PlayerController.lastCheckpoint = ID;
-
-            Debug.Log("Triggered checkpoint "+PlayerController.lastCheckpoint.ToString());
-        } else {
-            Debug.Log(col.gameObject.tag);
         }
     }
 }
