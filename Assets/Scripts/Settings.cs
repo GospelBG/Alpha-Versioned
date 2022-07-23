@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Localization.Settings;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Settings : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class Settings : MonoBehaviour
 
     public static GameObject lastRenderer;
     public static GameObject lastCanvas;
+
+    void Update() {
+        if (GameController.UIMode && Keyboard.current.escapeKey.wasPressedThisFrame) {
+            returnToMenu();
+        }
+    }
 
     // Start is called before the first frame update
     IEnumerator Start() {

@@ -11,13 +11,20 @@ public class PauseMenu : MonoBehaviour
     public static int visible = 1;
     public static int invisible = 0;
 
+    static Animation anim;
+
     void Start() {
+        anim = GetComponent<Animation>();
         menu = gameObject.transform.parent.gameObject;
         setVisibility(invisible);
         SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
 
     public static void setVisibility(int visibility) {
+        if (anim.IsPlaying("MenuToSettings") || anim.IsPlaying("SettingsToMenu")) {
+            return;
+        }
+
         if (visibility == visible) {
             GameController.UIMode = true;
             menu.SetActive(true);
@@ -27,6 +34,8 @@ public class PauseMenu : MonoBehaviour
             GameController.UIMode = false;
             menu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+
+            PlayerController.MouseSensitivity = PlayerPrefs.GetFloat("sensibility", 10);
         }
     }
 
@@ -36,11 +45,11 @@ public class PauseMenu : MonoBehaviour
 
     public void goToSettings() {
         Settings.resetScene();
-        GetComponent<Animation>().Play("MenuToSettings");
+        anim.Play("MenuToSettings");
     }
 
     public void returnToMenu() {
-        
+        //TODO: Save & Return to menu
     }
 
     public void replaceRender(string SceneName) {

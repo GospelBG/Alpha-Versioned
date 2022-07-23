@@ -22,6 +22,10 @@ public class DoorController : MonoBehaviour
     }
 
     public void switchState(bool newState) {
+        if (anim.IsPlaying("OpenedToClosed") || anim.IsPlaying("ClosedToOpened")) {
+            return;
+        }
+        
         switch (newState) {
             case false:
                 anim.Play("OpenedToClosed");

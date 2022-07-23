@@ -5,14 +5,23 @@ using UnityEngine.InputSystem;
  
 public class PlayerController : MonoBehaviour
 {
-    public float MouseSensitivity;
+    public static float MouseSensitivity;
     public Transform Player;
     public Transform cam;
     private float xRotation = 0f;
 
-    public float movementSpeed = 12f;
+    public float walkSpeed = 3f;
+    public float runSpeed = 7f;
 
-    public float gravityForce = -9.81f;
+    public float movementSpeed(bool isRunning) {
+        if (isRunning) {
+            return runSpeed;
+        } else {
+            return walkSpeed;
+        }
+    }
+
+    public float gravityForce = -19.62f;
 
     public float groundDistance = 0.4f;
 
@@ -26,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public static int lastCheckpoint = 0;
 
     public static List<Checkpoint> checkpoints = new List<Checkpoint>();
+
+    Keyboard kb = Keyboard.current;
 
     void Start() {
         MouseSensitivity = PlayerPrefs.GetFloat("sensibility", 10);
@@ -49,9 +60,9 @@ public class PlayerController : MonoBehaviour
             PlayerMovement();
         }
 
-        if (Keyboard.current.escapeKey.wasPressedThisFrame && !GameController.UIMode) {
+        if (kb.escapeKey.wasPressedThisFrame && !GameController.UIMode) {
             PauseMenu.setVisibility(PauseMenu.visible);
-        } else if (Keyboard.current.escapeKey.wasPressedThisFrame && GameController.UIMode) {
+        } else if (kb.escapeKey.wasPressedThisFrame && GameController.UIMode) {
             PauseMenu.setVisibility(PauseMenu.invisible);
         }
     }
@@ -72,11 +83,11 @@ public class PlayerController : MonoBehaviour
     public void PlayerMovement() {
         float x () {
             float axis = 0;
-            if (Keyboard.current.aKey.isPressed) {
+            if (kb.aKey.isPressed) {
                 axis += -1;
             }
             
-            if (Keyboard.current.dKey.isPressed) {
+            if (kb.dKey.isPressed) {
                 axis += 1;
             }
 
@@ -85,11 +96,11 @@ public class PlayerController : MonoBehaviour
 
         float z () {
             float axis = 0;
-            if (Keyboard.current.sKey.isPressed) {
+            if (kb.sKey.isPressed) {
                 axis += -1;
             }
             
-            if (Keyboard.current.wKey.isPressed) {
+            if (kb.wKey.isPressed) {
                 axis += 1;
             }
 
@@ -98,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = transform.right * x() + transform.forward * z();
         
-        gameObject.GetComponent<CharacterController>().Move(movement * movementSpeed * Time.deltaTime);
+        gameObject.GetComponent<CharacterController>().Move(movement * movementSpeed(kb.shiftKey.isPressed) * Time.deltaTime);
     }
 
     public void Gravity() {
